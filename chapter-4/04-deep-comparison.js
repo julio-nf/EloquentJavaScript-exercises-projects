@@ -8,7 +8,7 @@ function deepEqual(x, y) {
 
     if (xKeys.length != yKeys.length) return false;
 
-    for (element of xKeys) {
+    for (let element of xKeys) {
       if (!yKeys.includes(element) ||
           !deepEqual(x[element], y[element])) return false;
     }
