@@ -5,7 +5,7 @@
   "main": "README.md",
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^7.6.0"
+    "eslint": "^7.11.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
