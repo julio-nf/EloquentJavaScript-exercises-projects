@@ -1,17 +1,12 @@
 /*
-Measuring robot
+Robot efficiency
 
-It’s hard to objectively compare robots by just letting them solve a few
-scenarios. Maybe one robot just happened to get easier tasks or the kind of
-tasks that it is good at, whereas the other didn’t.
+Can you write a robot that finishes the delivery task faster than
+goalOrientedRobot? If you observe that robot’s behavior, what
+obviously stupid things does it do? How could those be improved?
 
-Write a function compareRobots that takes two robots (and their starting
-memory). It should generate 100 tasks and let each of the robots solve each
-of these tasks. When done, it should output the average number of steps each
-robot took per task.
-
-For the sake of fairness, make sure you give each task to both robots, rather
-than generating different tasks per robot.
+If you solved the previous exercise, you might want to use your compareRobots
+function to verify whether you improved the robot.
 */
 
 
@@ -128,7 +123,7 @@ than generating different tasks per robot.
 // }
 
 
-// My code
+// My code from previous exercise
 function runRobot(state, robot, memory) {
   for (let steps = 0;; steps++) {
   if (state.parcels.length == 0) {
@@ -156,10 +151,44 @@ function compareRobots(robot1, memory1, robot2, memory2) {
 }
 
 
-// Tests
-compareRobots(routeRobot, [], goalOrientedRobot, []);
-// -> Average steps per task for Robot 1: 18.86
-// -> Average steps per task for Robot 2: 14.43
+// My code
+function myRobot({place, parcels}, route) {
+  if (route.length == 0) {
+    let routes = [];
+    for (let parcel of parcels) {
+      if (parcel.place != place) {
+        routes.push(
+          {
+            parcel: parcel,
+            route: findRoute(roadGraph, place, parcel.place)
+          });
+      } else {
+        routes.push(
+          {
+            parcel: parcel,
+            route: findRoute(roadGraph, place, parcel.address)
+          });
+      }
+    }
+    route = routes
+            .reduce((a, b) => a.route.length <= b.route.length ? a : b)
+            .route;
+  }
+  return {direction: route[0], memory: route.slice(1)};
+}
 
-// -> Average steps per task for Robot 1: 18
-// -> Average steps per task for Robot 2: 14.9
+/*
+The problem with goalOrientedRobot is that it sets the goal to the first
+parcel in the state, even if it has the longest route.
+myRobot solves that finding the parcel with the shortest route between
+these in the state.
+*/
+
+
+// Tests
+compareRobots(myRobot, [], goalOrientedRobot, []);
+// -> Average steps per task for Robot 1: 12.82
+// -> Average steps per task for Robot 2: 15.51
+
+// -> Average steps per task for Robot 1: 12.7
+// -> Average steps per task for Robot 2: 15.21

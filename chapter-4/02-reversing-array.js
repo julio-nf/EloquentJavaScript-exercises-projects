@@ -14,7 +14,8 @@ previous chapter, which variant do you expect to be useful in more situations?
 Which one runs faster?
 */
 
-//My code
+
+// My code
 function reverseArray(array) {
   let reversedArray = [];
   for (let counter = array.length - 1; counter >= 0; counter--) {
@@ -34,14 +35,14 @@ function reverseArrayInPlace(array) {
   }
 }
 
-//Tests
-console.log(reverseArray(["A", "B", "C"]));
+
+// Tests
+console.log(reverseArray(['A', 'B', 'C']));
 // → ["C", "B", "A"];
 let arrayValue = [1, 2, 3, 4, 5];
 reverseArrayInPlace(arrayValue);
 console.log(arrayValue);
 // → [5, 4, 3, 2, 1]
-
 
 /* Thinking of side effects and pure functions, the first function is useful in
 more situations because it is a pure function and because of that we dont have

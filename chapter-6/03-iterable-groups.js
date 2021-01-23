@@ -13,40 +13,42 @@ It is okay if your iterator behaves strangely when the group is modified during
 iteration.
 */
 
-//Code from exercise 02
-class Group {
-  constructor() {
-    this.group = [];
-  }
+// Code from exercise 02
+// ---------------------
+// class Group {
+//   constructor() {
+//     this.group = [];
+//   }
 
-  add(value) {
-    if (!this.group.includes(value)) this.group.push(value);
-  }
+//   add(value) {
+//     if (!this.group.includes(value)) this.group.push(value);
+//   }
 
-  delete(value) {
-    if (this.group.includes(value)) {
-      let index = this.group.indexOf(value);
-      this.group = this.group.slice(0, index)
-                    .concat(this.group.slice(index + 1));
-    }
-  }
+//   delete(value) {
+//     if (this.group.includes(value)) {
+//       let index = this.group.indexOf(value);
+//       this.group = this.group.slice(0, index)
+//                     .concat(this.group.slice(index + 1));
+//     }
+//   }
 
-  has(value) {
-    return this.group.includes(value);
-  }
+//   has(value) {
+//     return this.group.includes(value);
+//   }
 
-  static from(iterable) {
-    let group = new Group();
-    for (let element of iterable) group.add(element);
-    return group;
-  }
+//   static from(iterable) {
+//     let group = new Group();
+//     for (let element of iterable) group.add(element);
+//     return group;
+//   }
 
-  [Symbol.iterator]() {
-    return new GroupIterator(this.group);
-  }
-}
+//   [Symbol.iterator]() {
+//     return new GroupIterator(this.group);
+//   }
+// }
 
-//My code
+
+// My code
 class GroupIterator {
   constructor(group) {
     this.i = 0;
@@ -62,8 +64,9 @@ class GroupIterator {
   }
 }
 
-//Tests
-for (let value of Group.from(["a", "b", "c"])) {
+
+// Tests
+for (let value of Group.from(['a', 'b', 'c'])) {
   console.log(value);
 }
 // → a

@@ -18,9 +18,10 @@ The Object.keys function will be useful when you need to go over the properties
 of objects to compare them.
 */
 
-//My code
+
+// My code
 function deepEqual(x, y) {
-  if (typeof x == "object" && typeof y == "object" &&
+  if (typeof x == 'object' && typeof y == 'object' &&
       x != null && y != null) {
 
     let xKeys = Object.keys(x),
@@ -38,12 +39,13 @@ function deepEqual(x, y) {
   } else return x === y;
 }
 
-//Tests
-let obj = {here: {is: "an"}, object: 2};
+
+// Tests
+let obj = {here: {is: 'an'}, object: 2};
 
 console.log(deepEqual(obj, obj));
 // → true
 console.log(deepEqual(obj, {here: 1, object: 2}));
 // → false
-console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
+console.log(deepEqual(obj, {here: {is: 'an'}, object: 2}));
 // → true

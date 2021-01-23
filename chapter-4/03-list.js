@@ -38,7 +38,8 @@ element at the given position in the list (with zero referring to the first
 If you haven’t already, also write a recursive version of nth.
 */
 
-//My code
+
+// My code
 function arrayToList(array) {
   let list = null;
   for (let element = array.length - 1; element >= 0; element--) {
@@ -71,7 +72,8 @@ function nth(list, position) {
   else return nth(list.rest, position - 1);
 }
 
-//Tests
+
+// Tests
 console.log(arrayToList([10, 20]));
 // → {value: 10, rest: {value: 20, rest: null}}
 console.log(listToArray(arrayToList([10, 20, 30])));

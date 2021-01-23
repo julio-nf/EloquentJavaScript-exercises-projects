@@ -21,28 +21,29 @@ and change the program so that it works for any size, outputting a grid of the
 given width and height.
 */
 
-//My code
-let chessboard = "";
+
+// My code
+let chessboard = '';
 let size = 8;
 for (let counter = 0; counter < size; counter++) {
     if (counter % 2 == 0) {
         for (let counter2 = 0; counter2 < size; counter2++) {
             if (counter2 % 2 == 0) {
-                chessboard += " "
+                chessboard += ' ';
             } else {
-                chessboard += "#"
+                chessboard += '#';
             }
         }
     } else {
         for (let counter2 = 0; counter2 < size; counter2++) {
             if (counter2 % 2 == 0) {
-                chessboard += "#"
+                chessboard += '#';
             } else {
-                chessboard += " "
+                chessboard += ' ';
             }
         }
     }
-    chessboard += "\n"
+    chessboard += '\n';
 }
 
 console.log(chessboard);

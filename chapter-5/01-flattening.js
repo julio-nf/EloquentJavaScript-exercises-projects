@@ -6,8 +6,10 @@ array of arrays into a single array that has all the elements of the original
 arrays.
 */
 
+
 let arrays = [[1, 2, 3], [4, 5], [6]];
 
-//My code && Tests
+
+// My code && Tests
 console.log(arrays.reduce((a,b) => a.concat(b)));
 // → [1, 2, 3, 4, 5, 6]

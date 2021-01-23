@@ -12,7 +12,8 @@ When defining the function, you can use a regular loop to do the actual
 looping.
 */
 
-//My code
+
+// My code
 function loop(value, testf, updatef, bodyf) {
   let current = value;
   if (testf(current)) {
@@ -22,7 +23,8 @@ function loop(value, testf, updatef, bodyf) {
   }
 }
 
-//Tests
+
+// Tests
 loop(3, n => n > 0, n => n - 1, console.log);
 // → 3
 // → 2

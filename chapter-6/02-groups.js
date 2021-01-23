@@ -20,7 +20,8 @@ Give the class a static from method that takes an iterable object as argument
 and creates a group that contains all the values produced by iterating over it.
 */
 
-//My code
+
+// My code
 class Group {
   constructor() {
     this.group = [];
@@ -31,10 +32,10 @@ class Group {
   }
 
   delete(value) {
-    if (this.group.includes(value)) {
-      let index = this.group.indexOf(value);
+    let index = this.group.indexOf(value);
+    if (index > -1) {
       this.group = this.group.slice(0, index)
-                    .concat(this.group.slice(index + 1));
+                             .concat(this.group.slice(index + 1));
     }
   }
 
@@ -49,7 +50,8 @@ class Group {
   }
 }
 
-//Tests
+
+// Tests
 let group = Group.from([10, 20]);
 console.log(group.has(10));
 // → true

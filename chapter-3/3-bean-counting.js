@@ -17,9 +17,10 @@ takes a second argument that indicates the character that is to be counted
 use of this new function.
 */
 
-//My code
+
+// My code
 function countBs(string) {
-  return countChar(string, "B")
+  return countChar(string, 'B');
 }
 
 function countChar(string, letter) {
@@ -32,8 +33,9 @@ function countChar(string, letter) {
   return counterLetter;
 }
 
-//Tests
-console.log(countBs("BBC"));
+
+// Tests
+console.log(countBs('BBC'));
 // → 2
-console.log(countChar("kakkerlak", "k"));
+console.log(countChar('kakkerlak', 'k'));
 // → 4

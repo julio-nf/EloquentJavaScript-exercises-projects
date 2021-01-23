@@ -10,7 +10,8 @@ Implement every as a function that takes an array and a predicate function as
 parameters. Write two versions, one using a loop and one using the some method.
 */
 
-//My code
+
+// My code
 /* Using loop ->
 
 function every(array, test) {
@@ -21,12 +22,14 @@ function every(array, test) {
 }
 */
 
+
 // Using some ->
 function every(array, test) {
    return !array.some(element => !test(element));
 }
 
-//Tests
+
+// Tests
 console.log(every([1, 3, 5], n => n < 10));
 // → true
 console.log(every([2, 4, 16], n => n < 10));
